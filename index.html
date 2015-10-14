@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="home">
+
+    <h1 class="page-heading">Posts</h1>
+
+    <ul class="list-unstyled">
+        {% for post in site.posts %}
+        <li>
+            <h2>
+                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h2>
+
+
+            {{ post.excerpt }}
+
+            <div class="clearfix">
+                <span class="text-muted pull-left">{{ post.date | date: "%Y-%m-%d" }}</span>
+                <span class="pull-right"><a class="small" href="{{ post.url | prepend: site.baseurl }}">more</a></span>
+            </div>
+            <hr />
+
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>

@@ -1,0 +1,4 @@
+---
+    title: LightSAML Logout
+---
+

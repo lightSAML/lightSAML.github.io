@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="post">
+
+    <header class="post-header">
+        {% include breadcrumbs.html %}
+
+        <h1 class="post-title">{{ page.title }}</h1>
+    </header>
+
+    {% if page.aside %}
+        <div class="row">
+            <article class="col-md-9">
+                {{ content }}
+            </article>
+            <aside class="col-md-3">
+                {% include {{ page.aside }} %}
+            </aside>
+        </div>
+    {% else %}
+        <article>
+            {{ content }}
+        </article>
+    {% endif %}
+
+</div>
