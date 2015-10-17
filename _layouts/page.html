@@ -6,7 +6,13 @@ layout: default
     <header class="post-header">
         {% include breadcrumbs.html %}
 
-        <h1 class="post-title">{{ page.title }}</h1>
+        <h1 class="post-title">
+            {{ page.title }}
+            {% if page.github %}
+            <a href="{{ page.github }}" class="btn btn-default btn-sm pull-right"><img src="/images/blacktocat-32.png" /></a>
+            {% endif %}
+        </h1>
+
     </header>
 
     {% if page.aside %}

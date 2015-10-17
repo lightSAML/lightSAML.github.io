@@ -2,8 +2,8 @@
     title: LightSAML Core
     aside: aside-lightsaml.html
     active: about
+    github: https://github.com/lightSAML/lightSAML
 ---
-
 
 LightSAML Core is a [PHP](https://php.net/) library implementing [OASIS](https://www.oasis-open.org/standards#samlv2.0)
 [SAML 2.0](http://saml.xml.org/saml-specifications) protocol, fully OOP structured with DPI principles, reusable, and

@@ -2,28 +2,49 @@
 layout: default
 ---
 
-<div class="home">
+<div class="row">
+    <div class="col-md-8">
 
-    <h1 class="page-heading">Posts</h1>
+        <h1>LightSAML</h1>
+        <p>LightSAML is a stack of <a href="https://php.net/">PHP</a> libraries and bundles implementing
+            <a href="https://www.oasis-open.org/standards#samlv2.0">OASIS'</a>
+            <a href="http://saml.xml.org/saml-specifications">SAML 2.0 protocol</a>.</p>
 
-    <ul class="list-unstyled">
+        <ul class="list-unstyled">
+            <li>
+                <h3><a href="/LightSAML-Core">LightSAML Core</a></h3>
+                <p>A core library implementing data model, XML serialization/deserialization, bindings, and profiles.</p>
+            </li>
+            <li>
+                <h3><a href="/LightSAML-IDP">LightSAML IDP</a></h3>
+                <p>A library implementing IDP side of the Web Browser Single SignOn SAML profile.</p>
+            </li>
+            <li>
+                <h3><a href="/LightSAML-Logout">LightSAML Logout</a></h3>
+                <p>A library implementing the Web Browser Single Logout SAML profile.</p>
+            </li>
+            <li>
+                <h3><a href="/Symfony-Bridge">Symfony Bridge</a></h3>
+                <p>A Symfony bridge bundle configuring internal profile services.</p>
+            </li>
+            <li>
+                <h3><a href="/SP-Bundle">Symfony SP Bundle</a></h3>
+                <p>A Symfony bundle implementing Service Provider side of the Web Browser Single Sign On SAML profile
+                as a Symfony security listener.</p>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="col-md-4">
+        <h4>Latest posts</h4>
+        <ul class="list-unstyled">
         {% for post in site.posts %}
-        <li>
-            <h2>
+            <li>
                 <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-            </h2>
-
-
-            {{ post.excerpt }}
-
-            <div class="clearfix">
-                <span class="text-muted pull-left">{{ post.date | date: "%Y-%m-%d" }}</span>
-                <span class="pull-right"><a class="small" href="{{ post.url | prepend: site.baseurl }}">more</a></span>
-            </div>
-            <hr />
-
-        </li>
+                <span class="text-muted pull-right">{{ post.date | date: "%Y-%m-%d" }}</span>
+            </li>
         {% endfor %}
-    </ul>
-
+        </ul>
+    </div>
 </div>
