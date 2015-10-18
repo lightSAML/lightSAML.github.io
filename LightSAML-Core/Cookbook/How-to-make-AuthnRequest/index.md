@@ -5,13 +5,13 @@
 ---
 
 AuthnRequest is a SAML message that SP sends to IDP in order to initiate authentication. Most important elements
-of an AuthnRequest are
+of an AuthnRequest are:
 
  * issuer
  * id
  * issue instant
 
-Building of an Authn Request might look like this:
+Building of an Authn Request can be done like this:
 
 {% highlight php %}
 // examples/how_to_make_authn_request.php
