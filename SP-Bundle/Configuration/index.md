@@ -1,0 +1,23 @@
+---
+    title: LightSAML SP Bundle Configuration
+    aside: aside-sp-bundle.html
+    active: config
+---
+
+{% highlight yaml %}
+# app/config.yml
+
+light_saml_sp:
+    username_mapper:
+        # default fallback list of attributes for
+        # lightsaml_sp.username_mapper.simple service to use to
+        # resolve SAML Response to username
+        - "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
+        - "http://schemas.xmlsoap.org/claims/EmailAddress"
+        - "http://schemas.xmlsoap.org/claims/CommonName"
+        - "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"
+        - "urn:oid:0.9.2342.19200300.100.1.3"
+        - "uid"
+        - "urn:oid:1.3.6.1.4.1.5923.1.1.1.6"
+        - "@name_id@"
+{% endhighlight %}

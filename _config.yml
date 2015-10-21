@@ -1,12 +1,13 @@
 # Site settings
 title: LightSAML
 email: lightsaml@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  LightSAML PHP libraries for SAML and Symfony bundles
+description: LightSAML PHP libraries for SAML and Symfony bundles
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://www.lightsaml.com" # the base hostname & protocol for your site
 twitter_username: lightsaml
 github_username:  lightsaml
+
+highlighter: pygments
 
 # Build settings
 markdown: kramdown

@@ -1,6 +1,7 @@
 ---
     title: SP Bundle
     github: https://github.com/lightSAML/SpBundle
+    aside: aside-sp-bundle.html
 ---
 
 A Symfony bundle implementing Service Provider side of the Web Browser Single Sign On SAML profile
@@ -12,3 +13,6 @@ as a Symfony security listener.
 
 LightSAML SP Bundle is open source and distributed under
 [MIT license](https://github.com/lightSAML/SpBundle/blob/master/LICENSE).
+
+ * [Getting started](/SP-Bundle/Getting-started/)
+ * [Configuration](/SP-Bundle/Configuration/)
