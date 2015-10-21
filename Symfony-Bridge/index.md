@@ -1,6 +1,7 @@
 ---
-    title: Symfony Bridge Bundle
+    title: LightSAML Symfony Bridge Bundle
     github: https://github.com/lightSAML/SymfonyBridgeBundle
+    aside: aside-symfony-bridge.html
 ---
 
 A Symfony bridge bundle configuring internal profile services, used by other security bundles.
@@ -11,3 +12,6 @@ A Symfony bridge bundle configuring internal profile services, used by other sec
 
 LightSAML Symfony Bridge Bundle is open source and distributed under
 [MIT license](https://github.com/lightSAML/SymfonyBridgeBundle/blob/master/LICENSE).
+
+
+ * [Configuration](/Symfony-Bridge/Configuration/)

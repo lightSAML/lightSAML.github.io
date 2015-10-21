@@ -2,6 +2,7 @@
     title: LightSAML Core Components
     aside: aside-lightsaml.html
     active: components
+    github: https://github.com/lightSAML/lightSAML
 ---
 
 ## Model

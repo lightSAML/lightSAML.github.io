@@ -2,6 +2,7 @@
     title: How to make EntityDescriptor
     aside: aside-lightsaml.html
     active: cookbook
+    github: https://github.com/lightSAML/lightSAML
 ---
 
 Entity Descriptor is a document that describes features of a SAML entity. It's a way through which a party reveals

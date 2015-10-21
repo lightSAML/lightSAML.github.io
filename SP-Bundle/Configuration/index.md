@@ -2,6 +2,7 @@
     title: LightSAML SP Bundle Configuration
     aside: aside-sp-bundle.html
     active: config
+    github: https://github.com/lightSAML/SpBundle
 ---
 
 {% highlight yaml %}

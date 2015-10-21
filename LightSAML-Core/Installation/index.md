@@ -2,6 +2,7 @@
     title: LightSAML Core Installation
     aside: aside-lightsaml.html
     active: installation
+    github: https://github.com/lightSAML/lightSAML
 ---
 
 

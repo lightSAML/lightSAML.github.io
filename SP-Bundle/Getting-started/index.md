@@ -2,6 +2,7 @@
     title: LightSAML SP Bundle Getting Started
     aside: aside-sp-bundle.html
     active: getting-started
+    github: https://github.com/lightSAML/SpBundle
 ---
 
 To start with LightSAML Symfony SP Bundle follow these steps

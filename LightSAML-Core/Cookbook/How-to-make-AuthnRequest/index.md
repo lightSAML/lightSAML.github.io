@@ -2,6 +2,7 @@
     title: How to make AuthnRequest
     aside: aside-lightsaml.html
     active: cookbook
+    github: https://github.com/lightSAML/lightSAML
 ---
 
 AuthnRequest is a SAML message that SP sends to IDP in order to initiate authentication. Most important elements

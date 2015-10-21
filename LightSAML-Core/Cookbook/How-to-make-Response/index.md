@@ -2,6 +2,7 @@
     title: How to make Response
     aside: aside-lightsaml.html
     active: cookbook
+    github: https://github.com/lightSAML/lightSAML
 ---
 
 Response is a SAML message that IDP sends to SP with security assertions and other bearer information, as a response
