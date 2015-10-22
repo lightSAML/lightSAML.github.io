@@ -25,6 +25,7 @@ Most important elements of an IDP EntityDescriptor are:
 Building of an SP Entity Descriptor might look like this
 
 {% highlight php %}
+<?php
 // examples/how_to_make_entity_descriptor.php
 
 $entityDescriptor = new \LightSaml\Model\Metadata\EntityDescriptor();

@@ -15,6 +15,7 @@ of an AuthnRequest are:
 Building of an Authn Request can be done like this:
 
 {% highlight php %}
+<?php
 // examples/how_to_make_authn_request.php
 
 $authnRequest = new \LightSaml\Model\Protocol\AuthnRequest();

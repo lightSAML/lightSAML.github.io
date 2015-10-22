@@ -19,6 +19,7 @@ Most important elements of a Response are:
 Building of a Response can be done like this:
 
 {% highlight php %}
+<?php
 // examples/how_to_make_response.php
 
 $response = new \LightSaml\Model\Protocol\Response();

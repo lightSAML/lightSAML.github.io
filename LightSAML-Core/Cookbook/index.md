@@ -12,8 +12,8 @@
  * [How to make EntityDescriptor](How-to-make-entity-descriptor/)
  * [How to make AuthnRequest](How-to-make-AuthnRequest/)
  * [How to make Response](How-to-make-Response/)
- * How to serialize data model to XML
- * How to deserialize XML to data model
+ * [How to serialize data model to XML](How-to-serialize-data-model-to-XML/)
+ * [How to deserialize XML to data model](How-to-deserialize-XML-to-data-model/)
 
 </div>
 <div class="col-md-6" markdown="1">
