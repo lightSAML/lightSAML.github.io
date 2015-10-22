@@ -5,7 +5,7 @@
     github: https://github.com/lightSAML/SpBundle
 ---
 
-{% highlight yaml %}
+{% highlight yaml linenos %}
 # app/config.yml
 
 light_saml_sp:

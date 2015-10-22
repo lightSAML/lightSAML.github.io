@@ -317,8 +317,8 @@ security:
     firewalls:
         main:
             light_saml_sp:
-                provider: db_provider
-                user_creator: user_creator
+                provider: db_provider      # user provider name configured in step 7
+                user_creator: user_creator # name of the service created step 8
                 login_path: /saml/login
                 check_path: /saml/login_check
             logout:
@@ -377,6 +377,6 @@ on that IDP, you'll be redirected back to ``/saml/login_check`` route with Asser
 
 ## Next Reads
 
- * foo
- * bar
+ * [User resolution](../User-resolution/)
+ * [Cookbook](../Cookbook/)
 

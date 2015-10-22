@@ -15,4 +15,5 @@ LightSAML SP Bundle is open source and distributed under
 [MIT license](https://github.com/lightSAML/SpBundle/blob/master/LICENSE).
 
  * [Getting started](/SP-Bundle/Getting-started/)
+ * [User resolution](/SP-Bundle/User-resolution/)
  * [Configuration](/SP-Bundle/Configuration/)
