@@ -33,35 +33,7 @@ public function registerBundles()
 {% endhighlight %}
 
 
-## Step 3: Configure symfony bridge
-
-Configure LightSAML Symfony Bridge in your config.yml with own entity id, own credentials, and IDP parties. For the getting
-started course you can you LightSAML-Core keys and IDP parties LightSAML is already configured with.
-
-{% highlight yaml %}
-// app/config.yml
-
-light_saml_symfony_bridge:
-    own:
-        entity_id: http://localhost/lightsaml/demosp
-        credentials:
-            -
-                certificate: "%kernel.root_dir%/../vendor/lightsaml/lightsaml/web/sp/saml.crt"
-                key:         "%kernel.root_dir%/../vendor/lightsaml/lightsaml/web/sp/saml.key"
-                password:    ~
-    party:
-        idp:
-            files:
-                - "%kernel.root_dir%/../vendor/lightsaml/lightsaml/web/sp/openidp.feide.no.xml"
-                - "%kernel.root_dir%/../vendor/lightsaml/lightsaml/web/sp/testshib-providers.xml"
-{% endhighlight %}
-
-For advanced configuration check the
-[LightSAML Symfony Bridge configuration](/Symfony-Bridge/Configuration)
-documentation page.
-
-
-## Step 4: Import routing resources
+## Step 3: Import routing resources
 
 Import LightSAML SP Bundle routing resources, and make logout route
 
@@ -76,7 +48,7 @@ logout:
 {% endhighlight %}
 
 
-## Step 5: Create User entity class
+## Step 4: Create User entity class
 
 For the simplicity sake of this getting started course, your User entity can look like this
 
@@ -203,7 +175,227 @@ class User implements UserInterface, \Serializable
 {% endhighlight %}
 
 
-## Step 6: Update database schema
+## Step 5: Create Id entry entity
+
+Though not explicitly required by the bundle, it is highly recommended that you track received message IDs in order
+to protect against message repetition. For those purposes, you need an entity to persist those IDs.
+
+{% highlight php %}
+<?php
+// src/AppBundle/Entity/IdEntry.php
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity()
+ */
+class IdEntry
+{
+    /**
+     * @var string
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\Column(type="string", length=255, nullable=false)
+     */
+    protected $entityId;
+
+    /**
+     * @var string
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\Column(type="string", length=255, nullable=false)
+     */
+    protected $id;
+
+    /**
+     * @var int
+     * @ORM\Column(type="integer", nullable=false)
+     */
+    protected $expiryTimestamp;
+
+    /**
+     * @return string
+     */
+    public function getEntityId()
+    {
+        return $this->entityId;
+    }
+
+    /**
+     * @param string $entityId
+     *
+     * @return IdEntry
+     */
+    public function setEntityId($entityId)
+    {
+        $this->entityId = $entityId;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getExpiryTime()
+    {
+        $dt = new \DateTime();
+        $dt->setTimestamp($this->expiryTimestamp);
+
+        return $dt;
+    }
+
+    /**
+     * @param \DateTime $expiryTime
+     *
+     * @return IdEntry
+     */
+    public function setExpiryTime(\DateTime $expiryTime)
+    {
+        $this->expiryTimestamp = $expiryTime->getTimestamp();
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $id
+     *
+     * @return IdEntry
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+}
+{% endhighlight %}
+
+
+## Step 6: Create ID Store service
+
+Implement LightSAML ``IdStoreInterface``
+
+{% highlight php %}
+<?php
+// src/AppBundle/Store/IdStore.php
+namespace AppBundle\Store;
+
+use AppBundle\Entity\IdEntry;
+use Doctrine\Common\Persistence\ObjectManager;
+use LightSaml\Provider\TimeProvider\TimeProviderInterface;
+use LightSaml\Store\Id\IdStoreInterface;
+
+class IdStore implements IdStoreInterface
+{
+    /** @var ObjectManager */
+    private $manager;
+
+    /** @var  TimeProviderInterface */
+    private $timeProvider;
+
+    /**
+     * @param ObjectManager         $manager
+     * @param TimeProviderInterface $timeProvider
+     */
+    public function __construct(ObjectManager $manager, TimeProviderInterface $timeProvider)
+    {
+        $this->manager = $manager;
+        $this->timeProvider = $timeProvider;
+    }
+
+    /**
+     * @param string    $entityId
+     * @param string    $id
+     * @param \DateTime $expiryTime
+     *
+     * @return void
+     */
+    public function set($entityId, $id, \DateTime $expiryTime)
+    {
+        $idEntry = new IdEntry();
+        $idEntry->setEntityId($entityId)
+            ->setId($id)
+            ->setExpiryTime($expiryTime);
+        $this->manager->persist($idEntry);
+        $this->manager->flush($idEntry);
+    }
+
+    /**
+     * @param string $entityId
+     * @param string $id
+     *
+     * @return bool
+     */
+    public function has($entityId, $id)
+    {
+        /** @var IdEntry $idEntry */
+        $idEntry = $this->manager->find(IdEntry::class, ['entityId'=>$entityId, 'id'=>$id]);
+        if (null == $idEntry) {
+            return false;
+        }
+        if ($idEntry->getExpiryTime()->getTimestamp() < $this->timeProvider->getTimestamp()) {
+            return false;
+        }
+
+        return true;
+    }
+}
+{% endhighlight %}
+
+and register it as a service
+
+{% highlight yaml %}
+# app/config/services.yml
+services:
+    id_store:
+        class: AppBundle\Store\IdStore
+        arguments:
+            - "@=service('doctrine').getManager()"
+            - "@lightsaml.system.time_provider"
+{% endhighlight %}
+
+
+## Step 7: Configure symfony bridge
+
+Configure LightSAML Symfony Bridge in your config.yml with own entity id, own credentials, and IDP parties. For the getting
+started course you can you LightSAML-Core keys and IDP parties LightSAML is already configured with.
+
+{% highlight yaml %}
+// app/config.yml
+
+light_saml_symfony_bridge:
+    own:
+        entity_id: http://localhost/lightsaml/demosp
+        credentials:
+            -
+                certificate: "%kernel.root_dir%/../vendor/lightsaml/lightsaml/web/sp/saml.crt"
+                key:         "%kernel.root_dir%/../vendor/lightsaml/lightsaml/web/sp/saml.key"
+                password:    ~
+    party:
+        idp:
+            files:
+                - "%kernel.root_dir%/../vendor/lightsaml/lightsaml/web/sp/openidp.feide.no.xml"
+                - "%kernel.root_dir%/../vendor/lightsaml/lightsaml/web/sp/testshib-providers.xml"
+    store:
+        id_state: id_store  # name of id store service created in step 6
+
+{% endhighlight %}
+
+For advanced configuration check the
+[LightSAML Symfony Bridge configuration](/Symfony-Bridge/Configuration)
+documentation page.
+
+
+## Step 8: Update database schema
 
 Update your database with the ``User`` entity schema.
 
@@ -221,9 +413,10 @@ $ app/console doctrine:schema:update --force
 {% endhighlight %}
 
 
-## Step 7: Define Symfony security user provider
+## Step 9: Define Symfony security user provider
 
-Add entity user provider to your security configuration so Symfony security can read users from the entity you created in Step 5
+Add entity user provider to your security configuration so Symfony security can read users from the entity
+you created in Step 4.
 
 {% highlight yaml %}
 # app/config/security.yml
@@ -236,7 +429,7 @@ security:
 {% endhighlight %}
 
 
-## Step 8: Implement User Creator service
+## Step 10: Implement User Creator service
 
 In case user provider defined in previous step can not retrieve a user, LightSAML SP Bundle security authentication provider,
 if configured so which will be done in next step, will call user creator to create a new user for the given SAML Response.
@@ -307,7 +500,7 @@ services:
 {% endhighlight %}
 
 
-## Step 9: Configure security
+## Step 11: Configure security
 
 Configure Symfony security firewall to use LightSAML SP Bundle security listener with previously defined user provider and creator.
 
@@ -317,8 +510,8 @@ security:
     firewalls:
         main:
             light_saml_sp:
-                provider: db_provider      # user provider name configured in step 7
-                user_creator: user_creator # name of the service created step 8
+                provider: db_provider       # user provider name configured in step 9
+                user_creator: user_creator  # name of the user creator service created in step 10
                 login_path: /saml/login
                 check_path: /saml/login_check
             logout:
@@ -331,7 +524,7 @@ security:
 {% endhighlight %}
 
 
-## Step 10: Create homepage and secure pages
+## Step 12: Create homepage and secure pages
 
 Create two pages, one public, other secure, and their corresponding templates, so we can test the security.
 
@@ -368,7 +561,7 @@ class DefaultController extends Controller
 {% endhighlight %}
 
 
-## Step 11: Open login page
+## Step 13: Test it...
 
 Go to the ``/saml/login`` route. Since in Step 3 we provided two IDP parties, you'll be redirected to a discovery page ``/saml/discovery``
 to choose one of them.  When you select IDP, you will be redirect to it's login location with AuthnRequest, and when you authenticate
