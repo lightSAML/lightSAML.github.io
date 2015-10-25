@@ -321,7 +321,10 @@ class IdStore implements IdStoreInterface
      */
     public function set($entityId, $id, \DateTime $expiryTime)
     {
-        $idEntry = new IdEntry();
+        $idEntry = $this->manager->find(IdEntry::class, ['entityId'=>$entityId, 'id'=>$id]);
+        if (null == $idEntry) {
+            $idEntry = new IdEntry();
+        }
         $idEntry->setEntityId($entityId)
             ->setId($id)
             ->setExpiryTime($expiryTime);
