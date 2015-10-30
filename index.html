@@ -37,12 +37,12 @@ layout: default
     </div>
 
     <div class="col-md-4">
-        <h4>Latest posts</h4>
+        <h4 class="mt-30">Latest posts</h4>
         <ul class="list-unstyled">
         {% for post in site.posts %}
-            <li>
-                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                <span class="text-muted pull-right">{{ post.date | date: "%Y-%m-%d" }}</span>
+            <li class="clearfix mt-10">
+                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a><br/>
+                <small class="text-muted">{{ post.date | date: "%Y-%m-%d" }}</small>
             </li>
         {% endfor %}
         </ul>
