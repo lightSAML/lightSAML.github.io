@@ -30,10 +30,8 @@ Following at the moment is not supported:
  * Custom extensions
 
 LightSAML Core is covered with unit tests and CI:
+[![License](https://img.shields.io/packagist/l/lightsaml/lightsaml.svg)](https://packagist.org/packages/lightsaml/lightsaml)
 [![Build Status](https://travis-ci.org/lightSAML/lightSAML.svg?branch=master)](https://travis-ci.org/lightSAML/lightSAML)
-[![Code Coverage](https://scrutinizer-ci.com/g/lightSAML/lightSAML/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/lightSAML/lightSAML/?branch=master)
-
-LightSAML tends to publish quality code
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/lightSAML/lightSAML/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/lightSAML/lightSAML/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/lightSAML/lightSAML/badge.svg?branch=master&service=github)](https://coveralls.io/github/lightSAML/lightSAML?branch=master)
 
 LightSAML is open source and distributed under [MIT licence](https://github.com/lightSAML/lightSAML/blob/master/LICENSE).
