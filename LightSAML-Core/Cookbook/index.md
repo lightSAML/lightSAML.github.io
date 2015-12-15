@@ -35,7 +35,7 @@
  * How to sign a SAML message
  * How to verify signature of a SAML message
  * How to encrypt Assertion
- * How to decrypt Assertion
+ * [How to decrypt Assertion](How-to-decrypt-Assertion/)
 
 </div>
 <div class="col-md-6" markdown="1">
