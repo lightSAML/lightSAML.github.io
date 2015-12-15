@@ -21,7 +21,7 @@
 ## Binding
 
  * How to send a message
- * How to receive a message
+ * [How to receive a message](How-to-receive-SAML-message/)
 
 </div>
 </div>
