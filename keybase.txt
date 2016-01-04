@@ -1,0 +1,69 @@
+https://keybase.io/tmilos
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://www.lightsaml.com
+  * I am tmilos (https://keybase.io/tmilos) on keybase.
+  * I have a public key with fingerprint 2906 0696 3E16 7038 78FE  B234 DF2A A652 71C9 1CE4
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.8.25"
+        },
+        "key": {
+            "eldest_kid": "0101cd6086860e7ffe542b171889469c0bf29d9820bbfc1b83c41497be29bd9ccc450a",
+            "fingerprint": "290606963e16703878feb234df2aa65271c91ce4",
+            "host": "keybase.io",
+            "key_id": "df2aa65271c91ce4",
+            "kid": "0101cd6086860e7ffe542b171889469c0bf29d9820bbfc1b83c41497be29bd9ccc450a",
+            "uid": "2cf47b1a1ef941e445d52a03257b7419",
+            "username": "tmilos"
+        },
+        "service": {
+            "hostname": "www.lightsaml.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1451910223,
+    "expire_in": 157680000,
+    "prev": "380d3e73d0cc80c43d9381e4bc9f5f2de96fbd904a8c2336922381753bdb1d1e",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+owGtUltsDFEY3i6qKkREGuKaIRHVbs85c2bmnBVxi8a1lBBCbeZcpp12d2ftTLeq
+lSaCKOISvBTBgyYVCRI8iLuodQkSgid3ESEocSfMNPUg8eg8nZz/+7//+77/bO3T
+LZSX87Cwdd7yK0Oe5Vx7yUILN4hFDQpzRL0SbVB43JZJL7glzYRUokqNrGemKyO2
+MyLpCBmpdkd0YYqUjEy7tpP0USBCIkhTVhUF+KBbxoV0vViNLYIqBJALHRCd6EAa
+liU1jBg0ICEU65QDZiEqKEGAMYtDRlSOIaYGk4gyQTnnWAOmP9Cyk5UynUrbgUQF
+UaADneqqhLoBVGIQSzKkYmEh09Q1ZEBOIZfYb6xyXO8vM0qn0linvH/g/7Pu2k46
+xC1sMGhCaVEMJcaa0JAJVKQZzMCQBkBXpruC9xJ23HGDSP23jM1lEGvgo6teV1cX
+iduVVZ5rJuIR7iT89lTa8RzuxP1yleelokG3V5/qhEsW6yKKMTsp/CSDDbb8WSH0
+odyzA2qINUghQEgtUuSKlJ2WMTtAaIZOgH+COTLjc6oECFUaqgCcE8CxKqhKfGOM
+U0uzkJBUt/wcADYJR6qqU5+SQENTmWBQQKkE3pYnHSWKfZ1mpU/p2pVJ06tNS2VV
+c86Q7qGcvFBuj3DwR0P5vfr9+bgNZ/JCBwZf77g75VaPO+cHfCiomNl09te58J7m
+N3RN75cPHpU9X3Pp0OSWg4PKnInTCsqLd49tX1f4+mjb0mX8YknfSc3vrv9Eudo4
+siUzfb8zeo7ZcbR87MD2xi+NidziZ/e3lTzePvxJ2ebwqQnfllRfGfljL8uWbqle
+ee/r7lHd+h9fvfNyv6nzrj2tmL2OzGjreeK4dzo7NBrOn2BlK+D69L4Pr27lX118
+YtM3d+2975aHW5oK5763svuPqDsuj//Z2txU8jFeO+zG8wXF4YHvF3+6eGPuzV0s
+0/io4OTh6W1z3OyLUvdz77bb7YPH1NyMpPI7lHL17fonG7cuHLSr9MLmocdaC2uK
+58/6DQ==
+=lzrn
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/tmilos
