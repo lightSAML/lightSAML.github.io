@@ -175,7 +175,7 @@ class User implements UserInterface, \Serializable
 {% endhighlight %}
 
 
-## Step 5: Create Id entry entity
+## Step 5: Create ID entry entity
 
 Though not explicitly required by the bundle, it is highly recommended that you track received message IDs in order
 to protect against message repetition. For those purposes, you need an entity to persist those IDs.
@@ -556,7 +556,7 @@ class DefaultController extends Controller
      * @Route("/secure", name="secure")
      * @Template("default/secure.html.twig")
      */
-    public function indexAction()
+    public function secureAction()
     {
         return [];
     }
