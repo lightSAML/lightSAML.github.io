@@ -370,7 +370,7 @@ services:
 ## Step 7: Configure symfony bridge
 
 Configure LightSAML Symfony Bridge in your config.yml with own entity id, own credentials, and IDP parties. For the getting
-started course you can you LightSAML-Core keys and IDP parties LightSAML is already configured with.
+started course LightSAML-Core keys and IDP parties LightSAML are already configured with.
 
 {% highlight yaml %}
 // app/config.yml
