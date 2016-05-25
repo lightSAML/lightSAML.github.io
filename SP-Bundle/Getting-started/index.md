@@ -512,14 +512,17 @@ Configure Symfony security firewall to use LightSAML SP Bundle security listener
 security:
     firewalls:
         main:
+            anonymous: ~
             light_saml_sp:
                 provider: db_provider       # user provider name configured in step 9
                 user_creator: user_creator  # name of the user creator service created in step 10
                 login_path: /saml/login
                 check_path: /saml/login_check
+                default_target_path: /
+                require_previous_session: true
             logout:
                 path: /logout
-            anonymous: ~
+            
 
     access_control:
         - { path: ^/secure, roles: ROLE_USER }
