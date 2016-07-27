@@ -10,26 +10,26 @@ It is recommended that you install LightSaml with [composer](https://getcomposer
 
 Add a requirement to your project composer.json with concrete version
 
-{% highlight json %}
+```json
 # composer.json
 {
     "require": {
         "lightsaml/lightsaml": "^2.0"
     }
 }
-{% endhighlight %}
+```
 
 And then run from the command line composer update
 
-{% highlight bash %}
+```bash
 $ composer.phar update lightsaml/lightsaml
-{% endhighlight %}
+```
 
 Or just let the composer choose the version
 
-{% highlight bash %}
+```bash
 $ composer.phar require lightsaml/lightsaml
-{% endhighlight %}
+```
 
 After that you will have LightSaml installed in your vendor directory.
 

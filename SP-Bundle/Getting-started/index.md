@@ -11,14 +11,14 @@ To start with LightSAML Symfony SP Bundle follow these steps
 
 Add ``lightsaml/sp-bundle`` to composer
 
-{% highlight bash %}
+```bash
 $ composer.phar require lightsaml/sp-bundle
-{% endhighlight %}
+```
 
 
 ## Step 2: Load bundles to kernel
 
-{% highlight php %}
+```php
 <?php
 // app/AppKernel.php
 
@@ -30,14 +30,14 @@ public function registerBundles()
         new LightSaml\SpBundle\LightSamlSpBundle(),
     );
 }
-{% endhighlight %}
+```
 
 
 ## Step 3: Import routing resources
 
 Import LightSAML SP Bundle routing resources, and make logout route
 
-{% highlight yaml %}
+```yaml
 // app/config/routing.yml
 lightsaml_sp:
     resource: "@LightSamlSpBundle/Resources/config/routing.yml"
@@ -45,14 +45,14 @@ lightsaml_sp:
 
 logout:
     path: /logout
-{% endhighlight %}
+```
 
 
 ## Step 4: Create User entity class
 
 For the simplicity sake of this getting started course, your User entity can look like this
 
-{% highlight php %}
+```php
 <?php
 // src/AppBundle/Entity/User.php
 namespace AppBundle\Entity;
@@ -171,8 +171,7 @@ class User implements UserInterface, \Serializable
         list($this->id, $this->username, $this->roles) = unserialize($serialized);
     }
 }
-
-{% endhighlight %}
+```
 
 
 ## Step 5: Create ID entry entity
@@ -180,7 +179,7 @@ class User implements UserInterface, \Serializable
 Though not explicitly required by the bundle, it is highly recommended that you track received message IDs in order
 to protect against message repetition. For those purposes, you need an entity to persist those IDs.
 
-{% highlight php %}
+```php
 <?php
 // src/AppBundle/Entity/IdEntry.php
 namespace AppBundle\Entity;
@@ -277,14 +276,14 @@ class IdEntry
         return $this;
     }
 }
-{% endhighlight %}
+```
 
 
 ## Step 6: Create ID Store service
 
 Implement LightSAML ``IdStoreInterface``
 
-{% highlight php %}
+```php
 <?php
 // src/AppBundle/Store/IdStore.php
 namespace AppBundle\Store;
@@ -352,11 +351,11 @@ class IdStore implements IdStoreInterface
         return true;
     }
 }
-{% endhighlight %}
+```
 
 and register it as a service
 
-{% highlight yaml %}
+```yaml
 # app/config/services.yml
 services:
     id_store:
@@ -364,7 +363,7 @@ services:
         arguments:
             - "@=service('doctrine').getManager()"
             - "@lightsaml.system.time_provider"
-{% endhighlight %}
+```
 
 
 ## Step 7: Configure symfony bridge
@@ -372,7 +371,7 @@ services:
 Configure LightSAML Symfony Bridge in your config.yml with own entity id, own credentials, and IDP parties. For the getting
 started course LightSAML-Core keys and IDP parties LightSAML are already configured with.
 
-{% highlight yaml %}
+```yaml
 // app/config.yml
 
 light_saml_symfony_bridge:
@@ -390,8 +389,7 @@ light_saml_symfony_bridge:
                 - "%kernel.root_dir%/../vendor/lightsaml/lightsaml/web/sp/testshib-providers.xml"
     store:
         id_state: id_store  # name of id store service created in step 6
-
-{% endhighlight %}
+```
 
 For advanced configuration check the
 [LightSAML Symfony Bridge configuration](/Symfony-Bridge/Configuration)
@@ -404,16 +402,16 @@ Update your database with the ``User`` entity schema.
 
 If you are using doctrine migrations, make a diff and migrate
 
-{% highlight bash %}
+```bash
 $ app/console doc:mig:dif
 $ app/console doc:mig:mig -n
-{% endhighlight %}
+```
 
 In case you're not using migrations, just force the schema update
 
-{% highlight bash %}
+```bash
 $ app/console doctrine:schema:update --force
-{% endhighlight %}
+```
 
 
 ## Step 9: Define Symfony security user provider
@@ -421,7 +419,7 @@ $ app/console doctrine:schema:update --force
 Add entity user provider to your security configuration so Symfony security can read users from the entity
 you created in Step 4.
 
-{% highlight yaml %}
+```yaml
 # app/config/security.yml
 security:
     providers:
@@ -429,7 +427,7 @@ security:
             entity:
                 class: AppBundle:User
                 property: username
-{% endhighlight %}
+```
 
 
 ## Step 10: Implement User Creator service
@@ -437,7 +435,7 @@ security:
 In case user provider defined in previous step can not retrieve a user, LightSAML SP Bundle security authentication provider,
 if configured so which will be done in next step, will call user creator to create a new user for the given SAML Response.
 
-{% highlight php %}
+```php
 <?php
 // src/AppBundle/Security/User/UserCreator.php
 namespace AppBundle\Security\User;
@@ -488,11 +486,11 @@ class UserCreator implements UserCreatorInterface
         return $user;
     }
 }
-{% endhighlight %}
+```
 
 Register it as a service
 
-{% highlight yaml %}
+```yaml
 # app/config/services.yml
 services:
     user_creator:
@@ -500,14 +498,14 @@ services:
         arguments:
             - "@=service('doctrine').getManager()"
             - "@lightsaml_sp.username_mapper.simple"
-{% endhighlight %}
+```
 
 
 ## Step 11: Configure security
 
 Configure Symfony security firewall to use LightSAML SP Bundle security listener with previously defined user provider and creator.
 
-{% highlight yaml %}
+```yaml
 # app/config/security.yml
 security:
     firewalls:
@@ -523,15 +521,14 @@ security:
 
     access_control:
         - { path: ^/secure, roles: ROLE_USER }
-
-{% endhighlight %}
+```
 
 
 ## Step 12: Create homepage and secure pages
 
 Create two pages, one public, other secure, and their corresponding templates, so we can test the security.
 
-{% highlight php %}
+```php
 <?php
 // src/AppBundle/Controller/DefaultController.php
 namespace AppBundle\Controller;
@@ -561,7 +558,7 @@ class DefaultController extends Controller
         return [];
     }
 }
-{% endhighlight %}
+```
 
 
 ## Step 13: Test it...

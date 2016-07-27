@@ -12,7 +12,8 @@ of classes. The ``BindingFactory`` can detect the binding type for the given HTT
 First you create Symfony's HttpFoundation Request, instantiate ``BindingFactory`` with that request and get the actual binding,
 and finally call the binding ``receive()`` method, that will return deserialized SAML document from the HTTP Request.
 
-{% highlight php %}
+```php
+<?php
 $request = \Symfony\Component\HttpFoundation\Request::createFromGlobals();
 
 $bindingFactory = new \LightSaml\Binding\BindingFactory();
@@ -23,7 +24,7 @@ $messageContext = new \LightSaml\Context\Profile\MessageContext();
 $response = $binding->receive($request, $messageContext);
 
 print $response->getID();
-{% endhighlight%}
+```
 
 Working code can be found at
 [LightSAML examples](https://github.com/lightSAML/lightSAML/blob/20146f9a9c3769d7aabe4c1b4c5c2d5f3ff2e8e9/examples/how_to_receive_saml_message.php).

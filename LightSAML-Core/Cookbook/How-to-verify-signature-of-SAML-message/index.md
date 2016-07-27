@@ -16,7 +16,8 @@ if signature validation fails, or return true if it succeeds.
 Following example shows how you can validate the signature of a SAML AuthnRequest. You can find the working code in
 [LightSAML examples](https://github.com/lightSAML/lightSAML/blob/7fe7ecd86dba287daf708151ef95f68984e03100/examples/how_to_verify_signature_of_saml_message.php).
 
-{% highlight php %}
+```php
+<?php
 $xml = '<AuthnRequest><ds:Signature>...</ds:Signature>...</AuthnRequest>';
 
 $deserializationContext = new \LightSaml\Model\Context\DeserializationContext();
@@ -42,8 +43,7 @@ try {
 } catch (\Exception $ex) {
     print "Signature validation failed\n";
 }
-
-{% endhighlight%}
+```
 
 Similarily, you could verify the signature of other ``SamlMessage`` descendants, like ``Response``, simply by instantiating it
 instead of the AuthnRequest from above. The rest of the code will remain the same.

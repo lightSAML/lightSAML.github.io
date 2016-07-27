@@ -18,7 +18,7 @@ Most important elements of a Response are:
 
 Building of a Response can be done like this:
 
-{% highlight php %}
+```php
 <?php
 // examples/how_to_make_response.php
 
@@ -81,11 +81,11 @@ $assertion
             )
     )
 ;
-{% endhighlight %}
+```
 
 Serialization of such AuthnRequest would produce XML similar to one below.
 
-{% highlight xml %}
+```xml
 <samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="_8a3904146809db7b19d4eaaba9876baed805c216e5"
         Version="2.0" IssueInstant="2015-10-18T20:02:55Z" Destination="https://sp.com/acs">
     <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">https://idp.com</saml:Issuer>
@@ -121,5 +121,4 @@ Serialization of such AuthnRequest would produce XML similar to one below.
         </AuthnStatement>
     </Assertion>
 </samlp:Response>
-{% endhighlight %}
-
+```

@@ -7,18 +7,19 @@
 
 Each LightSAML data model class implements ``SamlElementInterface`` that has ``deserialize()`` method
 
-{% highlight php %}
+``` php
+<?php
 interface SamlElementInterface
 {
     public function deserialize(\DOMElement $node, DeserializationContext $context);
 }
-{% endhighlight%}
+```
 
 Deserialization of SAML XML message is done with instantiation of ``DeserializationContext``, loading message XML to
 it's DOMDocument, instantiating appropriate LightSAML data class that corresponds with data in the XML, and
 calling ``deserialize()`` method on it with the document first child and deserialization context.
 
-{% highlight php %}
+```php
 <?php
 // examples/how_to_deserialize_XML_to_data_model.php
 
@@ -44,4 +45,4 @@ $authnRequest = new \LightSaml\Model\Protocol\AuthnRequest();
 $authnRequest->deserialize($deserializationContext->getDocument()->firstChild, $deserializationContext);
 
 var_dump($authnRequest);
-{% endhighlight %}
+```

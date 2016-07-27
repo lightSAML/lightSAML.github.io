@@ -20,7 +20,7 @@ we need the **username**.
 
 Username mapper responsibility is to provide username for a given SAML Response.
 
-{% highlight php %}
+```php
 <?php
 interface UsernameMapperInterface
 {
@@ -31,7 +31,7 @@ interface UsernameMapperInterface
      */
     public function getUsername(\LightSaml\Model\Protocol\Response $response);
 }
-{% endhighlight %}
+```
 
 LightSAML implements ``SimpleUsernameMapper`` that goes trough all response assertions and their attributes, and
 returns first attribute value if matched with one of the attribute names from the provided cascading fallback list.

@@ -5,7 +5,7 @@
     github: https://github.com/lightSAML/SpBundle
 ---
 
-{% highlight yaml linenos %}
+```yaml
 # app/config.yml
 
 light_saml_sp:
@@ -21,4 +21,4 @@ light_saml_sp:
         - "uid"
         - "urn:oid:1.3.6.1.4.1.5923.1.1.1.6"
         - "@name_id@"
-{% endhighlight %}
+```

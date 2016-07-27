@@ -14,7 +14,7 @@ of an AuthnRequest are:
 
 Building of an Authn Request can be done like this:
 
-{% highlight php %}
+```php
 <?php
 // examples/how_to_make_authn_request.php
 
@@ -27,11 +27,11 @@ $authnRequest
     ->setDestination('https://idp.com/login')
     ->setIssuer(new \LightSaml\Model\Assertion\Issuer('https://my.entity.id'))
 ;
-{% endhighlight %}
+```
 
 Serialization of such AuthnRequest would produce XML similar to one below.
 
-{% highlight xml %}
+```xml
 <samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
     ID="_8dcc6985f6d9f385f0bbd4562ef848ef3ae78d87d7"
     Version="2.0"
@@ -42,5 +42,5 @@ Serialization of such AuthnRequest would produce XML similar to one below.
 >
     <saml:Issuer>https://my.entity.id</saml:Issuer>
 </samlp:AuthnRequest>
-{% endhighlight %}
+```
 

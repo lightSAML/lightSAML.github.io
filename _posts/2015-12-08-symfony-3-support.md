@@ -39,7 +39,7 @@ so simple retrieval from container does the job, while in Symfony 2.7 synchroniz
 if it's not defined to retrieve the ``request`` synchronized service.
 
 
-{% highlight php %}
+```php
 <?php
 
 class SystemContainer extends AbstractContainer implements SystemContainerInterface
@@ -56,21 +56,21 @@ class SystemContainer extends AbstractContainer implements SystemContainerInterf
         return $this->container->get('request');
     }
 }
-{% endhighlight%}
+```
 
 Factory definition is handled diferently in Symfony 2.3 and 3.0, since version 2.6 the new ``setFactory()`` method was
 [introduced](http://symfony.com/doc/2.6/components/dependency_injection/factories.html), while in version 3.0 old ``setFactoryClass()``
 and ``setFactoryMethod()`` methods are deprecated. Thus in the bundle extension, you first have to check if DPI ``Defintion`` class
 has new ``setFactory()`` method, and as a fallback use old version 2.3 methods.
 
-{% highlight yaml %}
+```yaml
 services:
     lightsaml.own.entity_descriptor_provider:
         class: LightSaml\Builder\EntityDescriptor\SimpleEntityDescriptorBuilder
         # factory set in extension, differently based on symfony version
-{% endhighlight%}
+```
 
-{% highlight php %}
+```php
 <?php
     // LightSamlSymfonyBridgeExtension
     // ...
@@ -90,7 +90,7 @@ services:
         }
     }
     // ...
-{% endhighlight%}
+```
 
 LightSAML SP Bundle
 -------------------

@@ -4,7 +4,7 @@
     aside: aside-symfony-bridge.html
 ---
 
-{% highlight yaml %}
+```yaml
 # app/config.yml
 
 light_saml_symfony_bridge:
@@ -29,8 +29,7 @@ light_saml_symfony_bridge:
         idp:
             files:
                 - /path/to/idp-entity-descriptor.xml
-
-{% endhighlight %}
+```
 
 
 ## Tags

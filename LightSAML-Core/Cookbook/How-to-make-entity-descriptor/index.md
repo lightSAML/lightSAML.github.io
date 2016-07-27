@@ -24,7 +24,7 @@ Most important elements of an IDP EntityDescriptor are:
 
 Building of an SP Entity Descriptor might look like this
 
-{% highlight php %}
+```php
 <?php
 // examples/how_to_make_entity_descriptor.php
 
@@ -50,11 +50,11 @@ $spSsoDescriptor->addAssertionConsumerService(
         ->setBinding(\LightSaml\SamlConstants::BINDING_SAML2_HTTP_POST)
         ->setLocation('https://my.site/saml/acs')
 );
-{% endhighlight %}
+```
 
 Serialization of such Entity Descriptor would produce XML similar to one below.
 
-{% highlight xml %}
+```xml
 <EntityDescriptor ID="_2240bd9c-30c4-4d2a-ab3e-87a94ea334fd" entityID="http://some.entity.id"
         xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
     <SPSSODescriptor WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -71,7 +71,7 @@ Serialization of such Entity Descriptor would produce XML similar to one below.
                 Location="https://my.site/saml/acs"/>
     </SPSSODescriptor>
 </EntityDescriptor>
-{% endhighlight %}
+```
 
 
 
@@ -88,14 +88,14 @@ both SP and IDP, based on few given arguments:
 An EntityDescriptor built above, now using ``SimpleEntityDescriptorBuilder`` can be made, in quite fewer lines
 of code, in the following way:
 
-{% highlight php %}
+```php
+<?php
 $entityDescriptorBuilder = new \LightSaml\Builder\EntityDescriptor\SimpleEntityDescriptorBuilder(
     'http://some.entity.id',
     'https://my.site/saml/acs',
     \LightSaml\Credential\X509Certificate::fromFile('/path/to/file.crt')
 );
 $entityDescriptor = $entityDescriptorBuilder->get();
-{% endhighlight %}
+```
 
 You can build your own EntityDescriptor builders by implementing the ``EntityDescriptorProviderInterface`` interface.
-

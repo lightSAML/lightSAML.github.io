@@ -15,7 +15,8 @@ key pair. Finally you decrypt the SAML Assertion with that credential and get th
 Working example can be found in
 [LightSAML-Core examples](https://github.com/lightSAML/lightSAML/blob/f125b2a70cb9c076f4ca86c156cbac297da43fe4/examples/how_to_decrypt_assertion.php).
 
-{% highlight php %}
+```php
+<?php
 $xml = '<samlp:Response><saml:EncryptedAssertion>...</saml:EncryptedAssertion></samlp:Response>';
 
 // deserialize XML into a Response data model object
@@ -43,4 +44,4 @@ $assertion = $reader->decryptMultiAssertion([$credential], $decryptDeserializeCo
 foreach ($assertion->getFirstAttributeStatement()->getAllAttributes() as $attribute) {
     print sprintf("%s: %s\n", $attribute->getName(), $attribute->getFirstAttributeValue());
 }
-{% endhighlight%}
+```
