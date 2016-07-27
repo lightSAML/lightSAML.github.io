@@ -7,7 +7,7 @@ url: "http://www.lightsaml.com" # the base hostname & protocol for your site
 twitter_username: lightsaml
 github_username:  lightsaml
 
-highlighter: pygments
+highlighter: rouge
 
 # Build settings
 markdown: kramdown
