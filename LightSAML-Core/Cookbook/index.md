@@ -20,8 +20,8 @@
 
 ## Binding
 
- * How to send a message
- * [How to receive a message](How-to-receive-SAML-message/)
+ * [How to send a SAML message](How-to-send-SAML-message/)
+ * [How to receive a SAML message](How-to-receive-SAML-message/)
 
 </div>
 </div>

@@ -1,5 +1,5 @@
 ---
-    title: How to receive a message
+    title: How to receive a SAML message
     aside: aside-lightsaml.html
     active: cookbook
     github: https://github.com/lightSAML/lightSAML
