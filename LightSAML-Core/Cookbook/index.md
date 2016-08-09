@@ -31,7 +31,7 @@
 
 ## Security
 
- * How to generate a key pair
+ * [How to generate a key pair](How-to-generate-key-pair/)
  * [How to sign a SAML message](How-to-sign-SAML-message/)
  * [How to verify signature of a SAML message](How-to-verify-signature-of-SAML-message/)
  * How to encrypt Assertion
