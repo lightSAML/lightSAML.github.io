@@ -33,3 +33,9 @@ pre .lineno {
     border-right: solid 1px #cccccc;
     padding-right: 4px;
 }
+
+a.more {
+    float: right;
+    margin-right: 11px;
+    margin-top: 7px;
+}
