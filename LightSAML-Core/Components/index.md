@@ -11,7 +11,7 @@ LightSAML Core Model is contained in the ``LightSaml\Model`` namespace and defin
 Each model class implements ``SamlElementInterface`` as a way of serialization and deserialization. Also, each model class
 inherits ``AbstractSamlModel`` that defines common protected helper methods for serialization/deserialization.
 
-[read more](Model/){:class="more"}
+[more about LightSAML Model](Model/){:class="more"}
 
 ## Validator
 
