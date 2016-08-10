@@ -34,5 +34,7 @@ of the SAML protocol are: AuthnRequest, Response, LogoutRequest, and LogoutRespo
 
 ## Assertion
 
+Assertion holds information about the bearer user. It can be signed or encrypted. It contains ``Issuer``, ``Subject``, ``Conditions``,
+``AttributeStatement``, and ``AuthnStatement``.
 
 [SAML Assertion details](Assertion/){:class="more"}
