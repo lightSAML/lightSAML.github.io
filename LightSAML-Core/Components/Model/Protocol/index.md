@@ -45,7 +45,7 @@ of the authentication, and if successful, it also usually contains ``Assertion``
 and eventually ``NameID``. Assertion in Web Browser SSO SAML profile must be signed. Assertion can also be encrypted.
 
 
-![SAML Response](SAMl-Response.png)
+![SAML Response](SAML-Response.png)
 
 [comment]: <> (  [SamlMessage|+ID;+Version;+IssueInstant;+Destination{bg:wheat}]^-[StatusResponse{bg:wheat}]    )
 [comment]: <> (  [SamlMessage]<>-0..1>[Signature]                                                               )
