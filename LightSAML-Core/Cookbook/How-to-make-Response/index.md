@@ -25,6 +25,11 @@ Building of a Response can be done like this:
 $response = new \LightSaml\Model\Protocol\Response();
 $response
     ->addAssertion($assertion = new \LightSaml\Model\Assertion\Assertion())
+    ->setStatus(new \LightSaml\Model\Protocol\Status(
+        new \LightSaml\Model\Protocol\StatusCode(
+            \LightSaml\SamlConstants::STATUS_SUCCESS)
+        )
+    )
     ->setID(\LightSaml\Helper::generateID())
     ->setIssueInstant(new \DateTime())
     ->setDestination('https://sp.com/acs')
@@ -89,6 +94,9 @@ Serialization of such AuthnRequest would produce XML similar to one below.
 <samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="_8a3904146809db7b19d4eaaba9876baed805c216e5"
         Version="2.0" IssueInstant="2015-10-18T20:02:55Z" Destination="https://sp.com/acs">
     <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">https://idp.com</saml:Issuer>
+    <samlp:Status>
+        <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+    </samlp:Status>
     <Assertion xmlns="urn:oasis:names:tc:SAML:2.0:assertion" ID="_4a9400f18f507a46339c622929c6795c6195bd2b1d"
             Version="2.0" IssueInstant="2015-10-18T20:02:55Z">
         <Issuer>https://idp.com</Issuer>
