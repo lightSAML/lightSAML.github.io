@@ -8,24 +8,7 @@
 
 It is recommended that you install LightSaml with [composer](https://getcomposer.org/).
 
-Add a requirement to your project composer.json with concrete version
-
-```json
-# composer.json
-{
-    "require": {
-        "lightsaml/lightsaml": "^2.0"
-    }
-}
-```
-
-And then run from the command line composer update
-
-```bash
-$ composer.phar update lightsaml/lightsaml
-```
-
-Or just let the composer choose the version
+Best way would be to just let the composer choose the appropriate version
 
 ```bash
 $ composer.phar require lightsaml/lightsaml
