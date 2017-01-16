@@ -22,3 +22,32 @@ light_saml_sp:
         - "urn:oid:1.3.6.1.4.1.5923.1.1.1.6"
         - "@name_id@"
 ```
+
+## Security configuration
+
+```yaml
+security:
+    firewalls:
+        main:
+            light_saml_sp:
+                # Symfony's default options
+                # provides user from given username
+                provider: username_provider_service_id
+                success_handler: success_handler_service_id
+                failure_handler: failure_handler_service_id
+
+                # LightSAML options
+
+                # provides username from the received SAML Response
+                username_mapper: lightsaml_sp.username_mapper.simple
+
+                # called in case provider didn't return a user to create a new user
+                user_creator: ~
+
+                # provides token attributes
+                attribute_mapper: lightsaml_sp.attribute_mapper.simple
+
+                # use string as username and create unauthenticated token w/out roles
+                # in case creator didn't create a user
+                force: false
+```

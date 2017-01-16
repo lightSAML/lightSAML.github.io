@@ -18,3 +18,5 @@ LightSAML SP Bundle is open source and distributed under
  * [Getting started](/SP-Bundle/Getting-started/)
  * [User resolution](/SP-Bundle/User-resolution/)
  * [Configuration](/SP-Bundle/Configuration/)
+ * [Username mapper](/SP-Bundle/Username-mapper/)
+ * [Attribute mapper](/SP-Bundle/Attribute-mapper/)

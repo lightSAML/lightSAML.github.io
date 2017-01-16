@@ -49,7 +49,9 @@ and default cascading fallback list of attributes for ``SimpleUsernameMapper`` i
 If default behavior does not fit your needs, you can set your own value for ``light_saml_sp.username_mapper``
 bundle configuration in ``app/config/config.yml``, and keep using ``SimpleUsernameMapper``, or you could write
 your own implementation of the ``UsernameMapperInterface`` and set it's service name to
-the configuration of ``light_saml_sp`` security listener in ``app/config/security.yml``.
+the configuration of ``light_saml_sp`` security listener in ``app/config/security.yml``. Check the full
+[LightSAML SP security configuration](../Configuration#security-configuration), and how to create
+[custom username mapper](../Username-mapper#custom-username-mapper).
 
 
 ## Symfony User Provider
@@ -74,4 +76,4 @@ user creator is called with expectation to create a new User based on the given 
 
 You can find the example user creator in
 [Getting started - Step 8: Implement User Creator service](../Getting-started/#step-8-implement-user-creator-service).
-
+User creator is specified in the LightSAML SP firewall [security configuration](../Configuration#security-configuration).

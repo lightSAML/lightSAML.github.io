@@ -523,6 +523,8 @@ security:
         - { path: ^/secure, roles: ROLE_USER }
 ```
 
+Check the full [LightSAML SP security configuration](../Configuration#security-configuration).
+
 
 ## Step 12: Create homepage and secure pages
 
