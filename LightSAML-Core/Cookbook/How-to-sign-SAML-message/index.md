@@ -7,9 +7,9 @@
 
 Signing all SAML objects (``AuthnRequest``, ``Response``, ``Assertion``, ``LogoutRequest``, and ``LogoutResponse``) is all done in the
 same way - by setting an instance of the ``SignatureWriter`` to object's signature property - by the **``setSignature()``** method.
-Since signing all SAML objects is the same, only the example of singing one of them is given below - signing of the ``AuthnRequest``.
+Since signing all SAML objects is the same, only the example of signing one of them is given below - signing of the ``AuthnRequest``.
 
-In order to instantiate ``SignatureWrite`` and enable it for singing, you have to provide to it's constructor (or set it later on, but
+In order to instantiate ``SignatureWrite`` and enable it for signing, you have to provide to it's constructor (or set it later on, but
 before the serialization) your **certificate** and your **private key**.
 
 ```php
