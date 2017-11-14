@@ -187,6 +187,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Table(name="id_entries")
  * @ORM\Entity()
  */
 class IdEntry
