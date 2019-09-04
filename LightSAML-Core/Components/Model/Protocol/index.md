@@ -35,7 +35,7 @@ HTTP-Redirect bindings are abstracted into common ancessor class ``SamlMessage``
 ``AuthnRequest`` is an artifact sent from SP to IDP to initiate authentication process. It must contain the issuer, and eventually
 be signed.
 
-![SAML AuthnRequest](SAMl-AuthnRequest.png)
+<img src="SAMl-AuthnRequest.png" alt="SAML AuthnRequest" style="max-width: 90%">
 
 
 ## Response
@@ -45,7 +45,7 @@ of the authentication, and if successful, it also usually contains ``Assertion``
 and eventually ``NameID``. Assertion in Web Browser SSO SAML profile must be signed. Assertion can also be encrypted.
 
 
-![SAML Response](SAML-Response.png)
+<img src="SAML-Response.png" alt="SAML Response" style="max-width: 90%">
 
 [comment]: <> (  [SamlMessage|+ID;+Version;+IssueInstant;+Destination{bg:wheat}]^-[StatusResponse{bg:wheat}]    )
 [comment]: <> (  [SamlMessage]<>-0..1>[Signature]                                                               )
@@ -62,7 +62,7 @@ and eventually ``NameID``. Assertion in Web Browser SSO SAML profile must be sig
 can authenticate the sender. It also must have a ``NameID`` of the user having SAML session terminated, and optionally the ``sessionIndex``
 of that session.
 
-![SAML LogoutRequest](SAML-LogoutRequest.png)
+<img src="SAML-LogoutRequest.png" alt="SAML LogoutRequest" style="max-width: 90%">
 
 [comment]: <> (  [SamlMessage|+ID;+Version;+IssueInstant;+Destination{bg:wheat}]^-[AbstractRequest{bg:wheat}]   )
 [comment]: <> (  [SamlMessage]<>-0..1>[Signature]                                                               )
@@ -76,7 +76,8 @@ of that session.
 ``LogoutResponse`` is sent by a party as a response to a received ``LogoutRequest``. It redirects the bearer user back to caller with
 the information of the outcome of the request. It has simple schema having the status element only.
 
-![SAML LogoutResponse](SAML-LogoutResponse.png)
+<img src="SAML-LogoutResponse.png" alt="SAML LogoutResponse" style="max-width: 90%">
+
 
 [comment]: <> (  [SamlMessage|+ID;+Version;+IssueInstant;+Destination{bg:wheat}]^-[SamlMessage]^-[StatusResponse{bg:wheat}]     )
 [comment]: <> (  [SamlMessage]^-[StatusResponse]                                                                                )
