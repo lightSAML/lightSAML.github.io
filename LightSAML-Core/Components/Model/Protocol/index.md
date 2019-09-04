@@ -14,7 +14,7 @@ objects of the SAML protocol are:
  * [LogoutRequest](#logoutrequest)
  * [LogoutResponse](#logoutresponse)
 
-![LightSAML Protocol overview](SAML-Protocol.png)
+<img src="SAML-Protocol.png" alt="LightSAML Protocol overview" style="max-width: 90%">
 
 [comment]: <> (  [SamlMessage|+ID;+Version;+IssueInstant;+Destination{bg:wheat}]^-[AbstractRequest{bg:wheat}]       )
 [comment]: <> (  [SamlMessage]^-[StatusResponse{bg:wheat}]                                                          )
