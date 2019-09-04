@@ -8,7 +8,7 @@
 Assertion holds information about the bearer user. It can be signed or encrypted. It contains ``Issuer``, ``Subject``, ``Conditions``,
 ``AttributeStatement``, and ``AuthnStatement``.
 
-![SAML Assertion](SAML-Assertion.png)
+<img src="SAML-Assertion.png" alt="SAML Assertion" style="max-width: 90%">
 
 [comment]: <> (  [Assertion|+ID;+Version;+IssueInstant]         )
 [comment]: <> (  [Assertion]<>->[Issuer]                        )
