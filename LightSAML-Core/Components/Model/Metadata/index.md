@@ -9,7 +9,7 @@ Metadata classes implements the
 [SAML metadata schema](http://www.oasis-open.org/committees/download.php/35391/sstc-saml-metadata-errata-2.0-wd-04-diff.pdf). Root
 objects of the SAML metadata model are ``EntitiesDescriptor`` and ``EntityDescriptor``.
 
-![EntitiesDescriptor](SAML-EntitiesDescriptor.png)
+<img src="SAML-EntitiesDescriptor.png" alt="EntitiesDescriptor" style="max-width: 90%">
 
 [comment]: <> (  [EntitiesDescriptor]<>-items*>[EntitiesDescriptor]   )
 [comment]: <> (  [EntitiesDescriptor]<>-items*>[EntityDescriptor]     )
@@ -17,7 +17,7 @@ objects of the SAML metadata model are ``EntitiesDescriptor`` and ``EntityDescri
 
 ``EntitiesDescriptor`` is a collection of ``EntitiesDescriptor``s and ``EntityDescriptor``s.
 
-![EntityDescriptor](SAML-EntityDescriptor.png)
+<img src="SAML-EntityDescriptor.png" alt="EntityDescriptor" style="max-width: 90%">
 
 [comment]: <> (  [EntityDescriptor| entityID; ID; validUntil]           )
 [comment]: <> (  [EntityDescriptor]<>-items*>[IdpSsoDescriptor]         )
@@ -31,7 +31,7 @@ objects of the SAML metadata model are ``EntitiesDescriptor`` and ``EntityDescri
 It can be signed with a ``Signature``. It has many ``IdpSsoDescriptor``s and ``SpSsoDescriptor``s that describe the party functionalities
 as SP and/or IDP. And it has many ``Organization``s and ``ContactPerson``s.
 
-![SSODescriptor](SAML-SsoDescriptor.png)
+<img src="SAML-SsoDescriptor.png" alt="SSODescriptor" style="max-width: 90%">
 
 [comment]: <> (  [SSODescriptor]<>-*>[SingleLogoutService]              )
 [comment]: <> (  [SSODescriptor]^-[IdpSsoDescriptor]                    )
@@ -42,7 +42,7 @@ as SP and/or IDP. And it has many ``Organization``s and ``ContactPerson``s.
 Both ``IdpSsoDescriptor`` and ``SpSsoDescriptor`` inherits ``SSODescriptor`` that has many ``SingleLogoutService``s, while
 ``IdpSsoDescriptor`` has many ``SingleSignOnService``s, and ``SpSsoDescriptor`` many ``AssertionConsumerService``s.
 
-![EndPoint](SAML-Endpoint.png)
+<img src="SAML-Endpoint.png" alt="EndPoint" style="max-width: 90%">
 
 [comment]: <> (  [Endpoint| binding; location]^-[IndexedEndpoint| index]        )
 [comment]: <> (  [IndexedEndpoint]^-[AssertionConsumerService]                  )
