@@ -8,15 +8,14 @@
 Once SAML Response is received LightSAML SP-Bundle authentication provider has to resolve it to a corresponding User.
 That resolution is done through several steps, that this document will explain in details.
 
-![User resolution](/images/sp-bundle/user-resolution-01-resolution.png)
-
+<img src="/images/sp-bundle/user-resolution-01-resolution.png" alt="User resolution" style="max-width: 90%">
 
 ## Username mapper
 
 First step in resolving the user from SAML Response is to check if it's an existing user. In order to do that,
 we need the **username**.
 
-![Username mapper](/images/sp-bundle/user-resolution-02-username.png)
+<img src="/images/sp-bundle/user-resolution-02-username.png" alt="Username mapper" style="max-width: 90%">
 
 Username mapper responsibility is to provide username for a given SAML Response.
 
@@ -61,7 +60,7 @@ such user if it exists. If an instance of ``Symfony\Component\Security\Core\User
 the user resolution is finished right away, based just on the SAML Response to username mapping, provided by
 username mapper.
 
-![User provider](/images/sp-bundle/user-resolution-03-provider.png)
+<img src="/images/sp-bundle/user-resolution-03-provider.png" alt="User provider" style="max-width: 90%">
 
 The ``provider`` is common Symfony options for each
 [security listener configuration](http://symfony.com/doc/current/reference/configuration/security.html).
@@ -72,7 +71,7 @@ The ``provider`` is common Symfony options for each
 If user provider didn't return User, it has to throw ``UsernameNotFoundException`` and in that case
 user creator is called with expectation to create a new User based on the given SAML Response, if possible.
 
-![User creator](/images/sp-bundle/user-resolution-04-creator.png)
+<img src="/images/sp-bundle/user-resolution-04-creator.png" alt="User creator" style="max-width: 90%">
 
 You can find the example user creator in
 [Getting started - Step 8: Implement User Creator service](../Getting-started/#step-8-implement-user-creator-service).
