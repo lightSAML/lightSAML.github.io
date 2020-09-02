@@ -20,8 +20,9 @@ $bindingFactory = new \LightSaml\Binding\BindingFactory();
 $binding = $bindingFactory->getBindingByRequest($request);
 
 $messageContext = new \LightSaml\Context\Profile\MessageContext();
+$binding->receive($request, $messageContext);
 /** @var \LightSaml\Model\Protocol\Response $response */
-$response = $binding->receive($request, $messageContext);
+$response = $messageContext->getMessage();
 
 print $response->getID();
 ```
