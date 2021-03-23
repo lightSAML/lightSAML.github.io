@@ -14,7 +14,7 @@ You need to construct your own credentials and entity descriptor, pass it to an 
 <?php
 $container = new \LightSaml\Bridge\Pimple\Container\BuildContainer(new \Pimple\Container());
 
-$ownCredential = new new \LightSaml\Credential\X509Credential(
+$ownCredential = new \LightSaml\Credential\X509Credential(
     \LightSaml\Credential\X509Certificate::fromFile('/path/to/your/saml.crt'),
     \LightSaml\Credential\KeyHelper::createPrivateKey('path/to/your/saml.key', null, true)
 );
@@ -30,7 +30,7 @@ $ownEntityDescriptorProvider = new \LightSaml\Builder\EntityDescriptor\SimpleEnt
 );
 
 // or somehow build it yourself
-$ownEntityDescriptor = new new \LightSaml\Model\Metadata\EntityDescriptor();
+$ownEntityDescriptor = new \LightSaml\Model\Metadata\EntityDescriptor();
 // put stuff to it...
 $ownEntityDescriptorProvider = new \LightSaml\Provider\EntityDescriptor\FixedEntityDescriptorProvider(
     $ownEntityDescriptor
